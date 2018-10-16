@@ -28,7 +28,7 @@ BIP38GRS is a standard process to encrypt Groestlcoin private keys that is impre
 ### encrypt(buffer, compressed, passphrase[, progressCallback, scryptParams])
 
 ``` javascript
-var bip38 = require('bip38')
+var bip38 = require('bip38grs')
 var wif = require('wifgrs')
 
 var myWifString = ''
@@ -43,7 +43,7 @@ console.log(encryptedKey)
 ### decrypt(encryptedKey, passphrase[, progressCallback, scryptParams])
 
 ``` javascript
-var bip38 = require('bip38')
+var bip38 = require('bip38grs')
 var wif = require('wifgrs')
 
 var encryptedKey = '6PfLeCDQkkRrDHZKW2ocPtrFgaM2MZBe2EhJBUhQCjVCMa7Bg6pD55PNUp'
