@@ -1,20 +1,20 @@
 {
-  "name": "bip38",
+  "name": "bip38grs",
   "version": "2.0.2",
-  "description": "BIP38 is a standard process to encrypt Bitcoin and crypto currency private keys that is impervious to brute force attacks thus protecting the user.",
+  "description": "BIP38 is a standard process to encrypt Groestlcoin private keys that is impervious to brute force attacks thus protecting the user.",
   "main": "index.js",
   "keywords": [
-    "bitcoin",
+    "groestlcoin",
     "crypto",
     "cryptography",
-    "litecoin"
+    "grs"
   ],
   "homepage": "http://cryptocoinjs.com/modules/currency/bip38/",
   "author": "JP Richardson",
   "dependencies": {
     "bigi": "^1.2.0",
     "browserify-aes": "^1.0.1",
-    "bs58check": "<3.0.0",
+    "bs58grscheck": "https://github.com/Groestlcoin/bs58grscheck",
     "buffer-xor": "^1.0.2",
     "create-hash": "^1.1.1",
     "ecurve": "^1.0.0",
@@ -26,10 +26,10 @@
     "mocha": "^2.3.3",
     "mochify": "^2.1.1",
     "standard": "^9.0.2",
-    "wif": "^2.0.1"
+    "wifgrs": "https://github.com/Groestlcoin/wifgrs"
   },
   "repository": {
-    "url": "git@github.com:bitcoinjs/bip38.git",
+    "url": "git@github.com:groestlcoin/bip38grs.git",
     "type": "git"
   },
   "scripts": {

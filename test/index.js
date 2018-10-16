@@ -2,9 +2,9 @@
 
 var assert = require('assert')
 var bip38 = require('../')
-var bs58check = require('bs58check')
+var bs58grscheck = require('bs58grscheck')
 var fixtures = require('./fixtures')
-var wif = require('wif')
+var wif = require('wifgrs')
 
 describe('bip38', function () {
   this.timeout(200000)
@@ -40,7 +40,7 @@ describe('bip38', function () {
       if (f.decryptOnly) return
 
       it('should encrypt ' + f.description, function () {
-        var buffer = bs58check.decode(f.wif)
+        var buffer = bs58grscheck.decode(f.wif)
 
         assert.equal(bip38.encrypt(buffer.slice(1, 33), !!buffer[33], f.passphrase), f.bip38)
       })

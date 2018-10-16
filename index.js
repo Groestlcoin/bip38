@@ -1,7 +1,7 @@
 var aes = require('browserify-aes')
 var assert = require('assert')
 var Buffer = require('safe-buffer').Buffer
-var bs58check = require('bs58check')
+var bs58grscheck = require('bs58grscheck')
 var createHash = require('create-hash')
 var scrypt = require('scryptsy')
 var xor = require('buffer-xor/inplace')
@@ -38,7 +38,7 @@ function getAddress (d, compressed) {
   payload.writeUInt8(0x00, 0) // XXX TODO FIXME bitcoin only??? damn you BIP38
   hash.copy(payload, 1)
 
-  return bs58check.encode(payload)
+  return bs58grscheck.encode(payload)
 }
 
 function encryptRaw (buffer, compressed, passphrase, progressCallback, scryptParams) {
@@ -77,7 +77,7 @@ function encryptRaw (buffer, compressed, passphrase, progressCallback, scryptPar
 }
 
 function encrypt (buffer, compressed, passphrase, progressCallback, scryptParams) {
-  return bs58check.encode(encryptRaw(buffer, compressed, passphrase, progressCallback, scryptParams))
+  return bs58grscheck.encode(encryptRaw(buffer, compressed, passphrase, progressCallback, scryptParams))
 }
 
 // some of the techniques borrowed from: https://github.com/pointbiz/bitaddress.org
@@ -128,7 +128,7 @@ function decryptRaw (buffer, passphrase, progressCallback, scryptParams) {
 }
 
 function decrypt (string, passphrase, progressCallback, scryptParams) {
-  return decryptRaw(bs58check.decode(string), passphrase, progressCallback, scryptParams)
+  return decryptRaw(bs58grscheck.decode(string), passphrase, progressCallback, scryptParams)
 }
 
 function decryptECMult (buffer, passphrase, progressCallback, scryptParams) {
@@ -205,7 +205,7 @@ function decryptECMult (buffer, passphrase, progressCallback, scryptParams) {
 }
 
 function verify (string) {
-  var decoded = bs58check.decodeUnsafe(string)
+  var decoded = bs58grscheck.decodeUnsafe(string)
   if (!decoded) return false
 
   if (decoded.length !== 39) return false
