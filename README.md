@@ -28,31 +28,31 @@ BIP38GRS is a standard process to encrypt Groestlcoin private keys that is impre
 ### encrypt(buffer, compressed, passphrase[, progressCallback, scryptParams])
 
 ``` javascript
-var bip38 = require('bip38grs')
+var bip38 = require('bip38')
 var wif = require('wifgrs')
 
-var myWifString = '5JQneAkvDs3xt76fePPW6guQxBxuVEXDwEjbEwRAR65dD2QSFLy'
+var myWifString = ''
 var decoded = wif.decode(myWifString)
 
 var encryptedKey = bip38.encrypt(decoded.privateKey, decoded.compressed, 'TestingOneTwoThree')
 console.log(encryptedKey)
-// => '6PRJq35LW89dEmixertV5sjwbFAH4ysUDMttxxdatvaZDhDXTe7nmPpz6j'
+// => ''
 ```
 
 
 ### decrypt(encryptedKey, passphrase[, progressCallback, scryptParams])
 
 ``` javascript
-var bip38 = require('bip38grs')
+var bip38 = require('bip38')
 var wif = require('wifgrs')
 
-var encryptedKey = '6PRJq35LW89dEmixertV5sjwbFAH4ysUDMttxxdatvaZDhDXTe7nmPpz6j'
+var encryptedKey = '6PfLeCDQkkRrDHZKW2ocPtrFgaM2MZBe2EhJBUhQCjVCMa7Bg6pD55PNUp'
 var decryptedKey = bip38.decrypt(encryptedKey, 'TestingOneTwoThree', function (status) {
   console.log(status.percent) // will print the percent every time current increases by 1000
 })
 
 console.log(wif.encode(0x80, decryptedKey.privateKey, decryptedKey.compressed))
-// => '5JQneAkvDs3xt76fePPW6guQxBxuVEXDwEjbEwRAR65dD2QSFLy'
+// => '5KGUthnCyV7hxAp4EJ3wixaVmmBMgwj1Rps9AStA9j2DeQaihtk'
 ```
 
 
