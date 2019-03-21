@@ -6,7 +6,7 @@ A JavaScript component that adheres to the [BIP38](https://github.com/bitcoin/bi
 
 
 ## Why?
-BIP38GRS is a standard process to encrypt Groestlcoin private keys that is imprevious to brute force attacks thus protecting the user.
+BIP38GRS is a standard process to encrypt Groestlcoin private keys that is impervious to brute force attacks thus protecting the user.
 
 
 ## Package Info
