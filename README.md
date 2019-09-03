@@ -31,12 +31,12 @@ BIP38GRS is a standard process to encrypt Groestlcoin private keys that is imper
 var bip38 = require('bip38grs')
 var wif = require('wifgrs')
 
-var myWifString = ''
+var myWifString = '5KGUthnCyV7hxAp4EJ3wixaVmmBMgwj1Rps9AStA9j2DeQaihtk'
 var decoded = wif.decode(myWifString)
 
 var encryptedKey = bip38.encrypt(decoded.privateKey, decoded.compressed, 'TestingOneTwoThree')
 console.log(encryptedKey)
-// => ''
+// => '6PRJZa3mD7BM9Y2vpnPCZWoPsFgRXW79u7A3LtW6MifAnakB5bJ5pZY9oE'
 ```
 
 
@@ -46,7 +46,7 @@ console.log(encryptedKey)
 var bip38 = require('bip38grs')
 var wif = require('wifgrs')
 
-var encryptedKey = '6PfLeCDQkkRrDHZKW2ocPtrFgaM2MZBe2EhJBUhQCjVCMa7Bg6pD55PNUp'
+var encryptedKey = '6PRJZa3mD7BM9Y2vpnPCZWoPsFgRXW79u7A3LtW6MifAnakB5bJ5pZY9oE'
 var decryptedKey = bip38.decrypt(encryptedKey, 'TestingOneTwoThree', function (status) {
   console.log(status.percent) // will print the percent every time current increases by 1000
 })
